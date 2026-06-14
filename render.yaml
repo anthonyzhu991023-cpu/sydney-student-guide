@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: sydney-student-guide
+    runtime: node
+    plan: free
+    region: singapore
+    buildCommand: npm ci && npm run build
+    startCommand: npm run start
+    healthCheckPath: /
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NEXT_PUBLIC_SITE_URL
+        sync: false
+      - key: NEXT_PUBLIC_SANITY_PROJECT_ID
+        sync: false
+      - key: NEXT_PUBLIC_SANITY_DATASET
+        value: production
+      - key: NEXT_PUBLIC_SANITY_API_VERSION
+        value: 2025-01-01
+      - key: SANITY_API_READ_TOKEN
+        sync: false
