@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Map, Sparkles } from "lucide-react";
+import { ArrowRight, BookOpenCheck, Edit3, Map, Sparkles } from "lucide-react";
 import { ArticleCard } from "@/components/article-card";
 import { CategoryMap } from "@/components/category-map";
 import { PixelIcon } from "@/components/icons";
@@ -16,9 +16,13 @@ export default async function HomePage() {
     <>
       <section className="hero">
         <div className="hero-copy">
+          <div className="hero-hud" aria-label="站点状态">
+            <span>LV.01 SYDNEY</span>
+            <span>QUEST GUIDE</span>
+          </div>
           <h1>悉尼留学生生存攻略</h1>
           <p>
-            从落地第一天到租房、交通、打工和校园生活，用任务地图一步步通关。
+            把落地、租房、交通、打工、医保和校园生活拆成任务。先走新手路线，再慢慢解锁城市副本。
           </p>
           <div className="hero-actions">
             <Link href="/categories/arrival" className="button primary">
@@ -30,8 +34,16 @@ export default async function HomePage() {
             </Link>
           </div>
           <SearchBox compact />
+          <div className="hero-admin-note">
+            <Edit3 aria-hidden="true" />
+            编辑文章从 <Link href="/studio">内容后台</Link> 进入，新增攻略后会自动出现在站内。
+          </div>
         </div>
         <div className="pixel-map" aria-label="悉尼生活任务地图示意图">
+          <div className="map-titlebar">
+            <span>SYDNEY QUEST MAP</span>
+            <span>ONLINE</span>
+          </div>
           <div className="map-skyline">
             <span />
             <span />
@@ -57,7 +69,7 @@ export default async function HomePage() {
 
       <section className="section articles-section" aria-labelledby="featured-title">
         <div className="section-heading">
-          <p className="section-kicker">最新攻略</p>
+          <p className="section-kicker">任务公告板</p>
           <h2 id="featured-title">先看这些高频问题</h2>
           <p>围绕刚到悉尼最容易踩坑的场景，先把关键路径跑通。</p>
         </div>
@@ -91,12 +103,28 @@ export default async function HomePage() {
       </section>
 
       <section className="section newsletter" aria-labelledby="newsletter-title">
-        <Map aria-hidden="true" />
-        <h2 id="newsletter-title">把下一篇攻略放进任务日志</h2>
-        <p>首版已接入 CMS 结构，可以持续发布悉尼租房、交通、打工和校园生活内容。</p>
-        <Link href="/guides" className="button primary">
-          查看全部攻略
-        </Link>
+        <div className="admin-panel">
+          <div>
+            <Edit3 aria-hidden="true" />
+            <h2 id="newsletter-title">管理编辑怎么做</h2>
+            <p>后台已经接在站内。打开内容后台，选择“攻略文章”或“分类”，填写标题、摘要、正文、标签和发布时间，发布后前台会读取。</p>
+          </div>
+          <ol>
+            <li>进入内容后台：/studio</li>
+            <li>新增或编辑攻略文章</li>
+            <li>发布后回到首页检查</li>
+          </ol>
+          <div className="admin-actions">
+            <Link href="/studio" className="button primary">
+              <BookOpenCheck aria-hidden="true" />
+              打开内容后台
+            </Link>
+            <Link href="/guides" className="button secondary">
+              <Map aria-hidden="true" />
+              查看全部攻略
+            </Link>
+          </div>
+        </div>
       </section>
     </>
   );

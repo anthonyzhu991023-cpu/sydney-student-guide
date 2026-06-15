@@ -2,12 +2,13 @@ import Link from "next/link";
 
 const navItems = [
   ["首页", "/"],
-  ["新手村任务", "/categories/arrival"],
+  ["任务地图", "/#quest-map"],
+  ["新手任务", "/categories/arrival"],
   ["租房避坑", "/categories/housing"],
-  ["交通出行", "/categories/transport"],
-  ["打工税号", "/categories/work-money"],
-  ["校园生活", "/categories/study-campus"],
-  ["费用清单", "/guides?q=费用"]
+  ["Opal交通", "/categories/transport"],
+  ["TFN打工", "/categories/work-money"],
+  ["后台", "/studio"],
+  ["全部攻略", "/guides"]
 ];
 
 export function SiteHeader() {
@@ -24,8 +25,8 @@ export function SiteHeader() {
           </Link>
         ))}
       </nav>
-      <Link href="/guides" className="nav-action">
-        搜索攻略
+      <Link href="/studio" className="nav-action">
+        内容后台
       </Link>
     </header>
   );

@@ -5,7 +5,7 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div>
         <strong>悉尼生存攻略</strong>
-        <p>把留学生活拆成一张能走通的任务地图。</p>
+        <p>像玩 RPG 一样，把悉尼留学生活拆成能完成的任务。</p>
       </div>
       <nav aria-label="页脚导航">
         <Link href="/guides">全部攻略</Link>

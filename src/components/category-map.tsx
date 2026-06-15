@@ -4,7 +4,7 @@ import type { Category } from "@/types/content";
 
 export function CategoryMap({ categories }: { categories: Category[] }) {
   return (
-    <section className="section map-section" aria-labelledby="map-title">
+    <section className="section map-section" id="quest-map" aria-labelledby="map-title">
       <div className="section-heading">
         <p className="section-kicker">任务地图</p>
         <h2 id="map-title">按关卡进入悉尼生活</h2>
